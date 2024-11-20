@@ -3,9 +3,14 @@
 namespace Qiyue\Trait\Client;
 
 use Qiyue\Request\Request;
+use Qiyue\Request\BaseRequest;
 
 trait ClientRequestTrait
 {
+    public ?BaseRequest $request = null;
+    public string $url = ''; //主请求url 各继承子类如有多个url请在子类内自定义
+    public ?array $request_options = [];
+
     public function setRequestUrl(?string $url = '')
     {
         if ($url) {

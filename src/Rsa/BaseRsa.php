@@ -11,10 +11,6 @@ abstract class BaseRsa implements RsaInterface
     use RsaCombineMethodTrait;
     use RsaEncryptMethodTrait;
 
-    public ?string $public_key = '';
-
-    public ?string $private_key = '';
-
     public function __construct(?string $public_key, ?string $private_key)
     {
         $this->initKey($public_key, $private_key);

@@ -6,6 +6,8 @@ use GuzzleHttp\Client;
 
 trait HttpRequestClientTrait
 {
+    public ?array $options = [];
+    public ?GuzzleHttpClient $client = null;
     public function setOptions(?array $options = [])
     {
         if ($options) {

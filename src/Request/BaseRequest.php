@@ -18,13 +18,7 @@ abstract class BaseRequest implements HttpRequestClientInterface, HttpRequestHea
     use HttpRequestHeaderTrait;
     use HttpRequestMethodTrait;
     use HttpResponseHandleTrait;
-
-    protected ?array $header = [];
-
-    public ?GuzzleHttpClient $client = null;
-
-    public ?array $options = [];
-
+    
     public function __construct($options = [])
     {
         if ($options) {
