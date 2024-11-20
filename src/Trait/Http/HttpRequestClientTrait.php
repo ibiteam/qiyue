@@ -3,6 +3,7 @@
 namespace Qiyue\Trait\Http;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Client as GuzzleHttpClient;
 
 trait HttpRequestClientTrait
 {

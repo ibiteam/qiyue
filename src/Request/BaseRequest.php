@@ -2,7 +2,6 @@
 
 namespace Qiyue\Request;
 
-use GuzzleHttp\Client as GuzzleHttpClient;
 use Qiyue\Interface\Http\HttpRequestClientInterface;
 use Qiyue\Interface\Http\HttpRequestHeaderInterface;
 use Qiyue\Interface\Http\HttpRequestMethodInterface;
@@ -18,7 +17,7 @@ abstract class BaseRequest implements HttpRequestClientInterface, HttpRequestHea
     use HttpRequestHeaderTrait;
     use HttpRequestMethodTrait;
     use HttpResponseHandleTrait;
-    
+
     public function __construct($options = [])
     {
         if ($options) {
