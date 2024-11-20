@@ -3,10 +3,10 @@
 namespace Qiyue\Client;
 
 use Qiyue\Assert\BaseAssert;
-use Qiyue\Interface\QiyueClientInterface;
+use Qiyue\Interface\ClientInterface;
 use Qiyue\Request\Request;
 
-abstract class BaseClient implements QiyueClientInterface
+abstract class BaseClient implements ClientInterface
 {
     public ?Request $request = null;
 
