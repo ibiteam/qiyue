@@ -1,6 +1,6 @@
 <?php
 
-namespace Qiyue\Interface;
+namespace Qiyue\Interface\Client;
 
 use Qiyue\Assert\BaseAssert;
 

@@ -8,7 +8,7 @@ class QiyueClient
 {
     public ?BaseClient $client = null;
 
-    public function __construct(string|array $client_key = '', $request_options = [])
+    public function __construct(string|array $client_key = '', ?array $request_options = [])
     {
         if (is_string($client_key)) {
             $config = config('qiyue');

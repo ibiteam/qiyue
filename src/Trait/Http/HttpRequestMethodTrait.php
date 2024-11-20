@@ -2,8 +2,6 @@
 
 namespace Qiyue\Trait\Http;
 
-use Psr\Http\Message\ResponseInterface;
-
 trait HttpRequestMethodTrait
 {
     public function doGet($url, $query = [], $header = [])

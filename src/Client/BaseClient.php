@@ -2,13 +2,20 @@
 
 namespace Qiyue\Client;
 
-use Qiyue\Assert\BaseAssert;
-use Qiyue\Interface\ClientInterface;
+use Qiyue\Interface\Client\ClientConfigInterface;
+use Qiyue\Interface\Client\ClientInterface;
+use Qiyue\Interface\Client\ClientRequestInterface;
 use Qiyue\Request\BaseRequest;
-use Qiyue\Request\Request;
+use Qiyue\Trait\Client\ClientConfigTrait;
+use Qiyue\Trait\Client\ClientRequestTrait;
+use Qiyue\Trait\Client\ClientTrait;
 
-abstract class BaseClient implements ClientInterface
+abstract class BaseClient implements ClientConfigInterface, ClientInterface, ClientRequestInterface
 {
+    use ClientConfigTrait;
+    use ClientRequestTrait;
+    use ClientTrait;
+
     public ?BaseRequest $request = null;
 
     public ?array $config = [];
@@ -19,31 +26,10 @@ abstract class BaseClient implements ClientInterface
 
     public function __construct(?array $config = [], ?array $request_options = [])
     {
-        if ($config ?? false) {
-            $this->config = $config; //加载配置
-        }
-        if (! $this->request) {
-            if ($request_options ?? false) {
-                $this->request_options = $request_options;
-            }
-            $this->request = new Request($this->request_options); //加载网络请求类
-        }
-        $this->url = $this->config['url'] ?? '';
+        $this->setConfig($config);
+        $this->setRequestOption($request_options);
+        $this->request = $this->getRequest();
+        $this->setRequestUrl($this->config['url']);
         $this->init(); //初始化
-    }
-
-    public function getClassName()
-    {
-        return get_called_class();
-    }
-
-    public function exception(string $message)
-    {
-        throw new \Exception($message);
-    }
-
-    public function doRequest(mixed $params = [], string $assert_name = BaseAssert::class, string $check_code = 'code', int|string $success_value = 200, string $msg_code = 'message', string $data_key = 'data')
-    {
-        return (new $assert_name)->assertSuccessfully($this->request->doFormPost($this->url, $params, []), $check_code, $success_value, $msg_code, $data_key);
     }
 }
