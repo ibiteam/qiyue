@@ -1,0 +1,21 @@
+{
+    "name": "ibiteam/qiyue",
+    "description": "A package for Qiyue application",
+    "type": "library",
+    "license": "Apache-2.0",
+    "autoload": {
+        "psr-4": {
+            "Qiyue\\": "src/"
+        }
+    },
+    "extra": {
+        "installer-paths": {
+            "config/qiyue.php": ["vendor/ibiteam/qiyue/src/Config/qiyue.php"]
+        },
+        "files": [
+            
+        ]
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
