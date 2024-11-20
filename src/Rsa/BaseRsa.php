@@ -4,12 +4,12 @@ namespace Qiyue\Rsa;
 
 use Qiyue\Interface\Rsa\RsaInterface;
 use Qiyue\Trait\Rsa\RsaCombineMethodTrait;
-use Qiyue\Trait\Rsa\RsaEncrtptMethodTrait;
+use Qiyue\Trait\Rsa\RsaEncryptMethodTrait;
 
 abstract class BaseRsa implements RsaInterface
 {
     use RsaCombineMethodTrait;
-    use RsaEncrtptMethodTrait;
+    use RsaEncryptMethodTrait;
 
     public ?string $public_key = '';
 

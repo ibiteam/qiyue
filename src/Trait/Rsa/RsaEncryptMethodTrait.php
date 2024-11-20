@@ -2,7 +2,7 @@
 
 namespace Qiyue\Trait\Rsa;
 
-trait RsaEncrtptMethodTrait
+trait RsaEncryptMethodTrait
 {
     public function encode(string $content)
     {
