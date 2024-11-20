@@ -26,16 +26,16 @@ class AuthClient extends BaseClient
     //初始化
     public function init()
     {
-        $this->app_id = $this->config['app_id'] ?? 0;
+        $this->app_id = $this->getConfig()['app_id'] ?? 0;
         if (! empty($this->app_id)) {
-            if (empty($this->config['public_key'])) {
+            if (empty($this->getConfig()['public_key'])) {
                 $this->exception('初始化授权类失败,缺少配置public_key');
             }
-            $this->public_key = $this->config['public_key'];
-            if (empty($this->config['private_key'])) {
+            $this->public_key = $this->getConfig()['public_key'];
+            if (empty($this->getConfig()['private_key'])) {
                 $this->exception('初始化授权类失败,缺少配置private_key');
             }
-            $this->private_key = $this->config['private_key'];
+            $this->private_key = $this->getConfig()['private_key'];
             if (! $this->rsa) {
                 $this->rsa = new AuthRsa($this->public_key, $this->private_key);
             }
