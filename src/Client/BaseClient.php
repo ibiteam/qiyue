@@ -4,11 +4,12 @@ namespace Qiyue\Client;
 
 use Qiyue\Assert\BaseAssert;
 use Qiyue\Interface\ClientInterface;
+use Qiyue\Request\BaseRequest;
 use Qiyue\Request\Request;
 
 abstract class BaseClient implements ClientInterface
 {
-    public ?Request $request = null;
+    public ?BaseRequest $request = null;
 
     public ?array $config = [];
 

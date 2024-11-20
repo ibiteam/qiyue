@@ -4,6 +4,7 @@ namespace Qiyue\Client;
 
 use Qiyue\Assert\AuthAssert;
 use Qiyue\Rsa\AuthRsa;
+use Qiyue\Rsa\BaseRsa;
 
 class AuthClient extends BaseClient
 {
@@ -15,7 +16,7 @@ class AuthClient extends BaseClient
 
     protected string $private_key;
 
-    public ?AuthRsa $rsa = null;
+    public ?BaseRsa $rsa = null;
 
     public function __construct(?array $config = [], ?array $request_options = [])
     {
