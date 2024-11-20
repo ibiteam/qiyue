@@ -26,6 +26,6 @@ trait ClientTrait
 
     public function doRequest(mixed $params = [], string $assert_name = BaseAssert::class, string $check_code = 'code', int|string $success_value = 200, string $msg_code = 'message', string $data_key = 'data')
     {
-        return (new $assert_name)->assertSuccessfully($this->request->doFormPost($this->url, $params, []), $check_code, $success_value, $msg_code, $data_key);
+        return (new $assert_name)->assertSuccessfully($this->request->doFormPost($this->getRequestUrl(), $params, []), $check_code, $success_value, $msg_code, $data_key);
     }
 }
