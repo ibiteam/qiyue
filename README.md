@@ -3,7 +3,7 @@ Qiyue Client Package
 
 # Install
 ```
-    composer require ibiteam/qiyue
+    composer require qiyue/qiyue
 ```
 
 # Inject
