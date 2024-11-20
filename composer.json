@@ -1,7 +1,15 @@
 {
-    "name": "qiyue/qiyue",
+    "name": "ibiteam/qiyue",
     "description": "A package for Qiyue application",
     "type": "library",
+    "authors": [
+    {
+      "name": "ibiteam",
+      "email": "opensource-dd@ueiibi.com",
+      "homepage": "https://opensource.bjguolian.cn",
+      "role": "Developer"
+    }
+  ],
     "license": "Apache-2.0",
     "autoload": {
         "psr-4": {
