@@ -4,15 +4,15 @@ namespace Qiyue\Interface\Client;
 
 interface ClientRequestInterface
 {
-    protected function setRequestUrl(?string $url = '');
+    public function setRequestUrl(?string $url = '');
 
-    protected function getRequestUrl();
+    public function getRequestUrl();
 
-    protected function createRequest();
+    public function createRequest();
 
-    protected function getRequest();
+    public function getRequest();
 
-    protected function setRequestOption(?array $request_options);
+    public function setRequestOption(?array $request_options);
 
-    protected function getRequestOption();
+    public function getRequestOption();
 }

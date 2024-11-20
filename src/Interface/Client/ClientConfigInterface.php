@@ -4,7 +4,7 @@ namespace Qiyue\Interface\Client;
 
 interface ClientConfigInterface
 {
-    protected function setConfig(?array $config = []);
+    public function setConfig(?array $config = []);
 
-    protected function getConfig();
+    public function getConfig();
 }
