@@ -10,12 +10,14 @@ use Qiyue\Interface\Http\HttpResponseHandleInterface;
 use Qiyue\Trait\Http\HttpRequestClientTrait;
 use Qiyue\Trait\Http\HttpRequestHeaderTrait;
 use Qiyue\Trait\Http\HttpRequestMethodTrait;
+use Qiyue\Trait\Http\HttpResponseHandleTrait;
 
 abstract class BaseRequest implements HttpRequestClientInterface, HttpRequestHeaderInterface, HttpRequestMethodInterface, HttpResponseHandleInterface
 {
     use HttpRequestClientTrait;
     use HttpRequestHeaderTrait;
     use HttpRequestMethodTrait;
+    use HttpResponseHandleTrait;
 
     protected ?array $header = [];
 

@@ -37,19 +37,4 @@ trait HttpRequestMethodTrait
             'json' => $params,
         ]));
     }
-
-    public function handleResponse(ResponseInterface $response)
-    {
-        if ((int) $response->getStatusCode() == 200) {
-            $res = $response->getBody();
-
-            if ($res) {
-                $data = json_decode(html_entity_decode($res), true);
-
-                return $data ?? [];
-            }
-        }
-
-        return [];
-    }
 }
