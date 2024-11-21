@@ -40,7 +40,14 @@ class QiyueClient
     public function doRequest()
     {
         $arguments = func_get_args(); //获取所有参数
-        $function_name = $arguments[0];
+        $function_name = $arguments[0] ?? '';
+        if(!$function_name){
+            return [
+                'code' => 1,
+                'message' => 'The Request Api Name Is Required.',
+                'data' => [],
+            ];
+        }
         unset($arguments[0]);
         $arguments = array_values($arguments);
         if (method_exists($this->client->getClassName(), $function_name)) {
