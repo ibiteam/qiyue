@@ -4,6 +4,14 @@ namespace Qiyue\Trait\Http;
 
 trait HttpRequestMethodTrait
 {
+    public const METHOD_POST = 'post';
+
+    public const METHOD_MUTI = 'muti_part';
+
+    public const METHOD_JSON = 'json';
+
+    public const METHOD_GET = 'get';
+
     public function doGet($url, $query = [])
     {
         return $this->handleResponse($this->getClient()->request('get', $url, [

@@ -3,6 +3,7 @@
 namespace Qiyue\Trait\Client;
 
 use Qiyue\Assert\BaseAssert;
+use Qiyue\Request\BaseRequest;
 
 trait ClientTrait
 {
@@ -37,8 +38,26 @@ trait ClientTrait
         return $assert_name;
     }
 
-    public function doRequest(mixed $params = [])
+    public function doRequest(mixed $params = [], string $method_type = 'post', string $assert_name = '')
     {
-        return (new ($this->autoloadAssert()))->assertSuccessfully($this->request->doFormPost($this->getRequestUrl(), $params));
+        $method_name = '';
+        switch ($method_type) {
+            case BaseRequest::METHOD_GET:
+                $method_name = 'doGet';
+                break;
+            case BaseRequest::METHOD_MUTI:
+                $method_name = 'doMutipartPost';
+                break;
+            case BaseRequest::METHOD_JSON:
+                $method_name = 'doJsonPost';
+                break;
+            default:
+                $method_name = 'doFormPost';
+        }
+        if (! $assert_name) {
+            return (new ($this->autoloadAssert()))->assertSuccessfully($this->request->$method_name($this->getRequestUrl(), $params));
+        }
+
+        return (new $assert_name)->assertSuccessfully($this->request->$method_name($this->getRequestUrl(), $params));
     }
 }
