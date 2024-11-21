@@ -2,13 +2,14 @@
 
 namespace Qiyue\Trait\Http;
 
-use GuzzleHttp\Client;
 use GuzzleHttp\Client as GuzzleHttpClient;
 
 trait HttpRequestClientTrait
 {
     public ?array $options = [];
+
     public ?GuzzleHttpClient $client = null;
+
     public function setOptions(?array $options = [])
     {
         if ($options) {
@@ -30,7 +31,7 @@ trait HttpRequestClientTrait
     {
         if (! $this->client) {
             $options = $this->getOptions();
-            $this->client = new Client($options);
+            $this->client = new GuzzleHttpClient($options);
         }
 
         return $this->client;
