@@ -5,6 +5,7 @@ namespace Qiyue\Trait\Client;
 trait ClientConfigTrait
 {
     public ?array $config = [];
+
     public function setConfig(?array $config = [])
     {
         if ($config) {

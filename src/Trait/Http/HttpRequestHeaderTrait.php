@@ -5,6 +5,7 @@ namespace Qiyue\Trait\Http;
 trait HttpRequestHeaderTrait
 {
     protected ?array $header = [];
+
     public function setHeader(?array $header)
     {
         if ($header && is_array($header)) {

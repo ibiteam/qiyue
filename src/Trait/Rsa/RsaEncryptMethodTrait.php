@@ -7,6 +7,7 @@ trait RsaEncryptMethodTrait
     public ?string $public_key = '';
 
     public ?string $private_key = '';
+
     public function encode(string $content)
     {
         if (! $content) {

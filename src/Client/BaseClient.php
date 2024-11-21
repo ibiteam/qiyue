@@ -14,7 +14,7 @@ abstract class BaseClient implements ClientConfigInterface, ClientInterface, Cli
     use ClientConfigTrait;
     use ClientRequestTrait;
     use ClientTrait;
-    
+
     public function __construct(?array $config = [], ?array $request_options = [])
     {
         $this->setConfig($config);
