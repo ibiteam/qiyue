@@ -10,7 +10,7 @@ class QiyueClientServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(QiyueClient::class, function ($app) {
-            $client_key = config('qiyue')['default_client'];
+            $client_key = config('qiyue')['default_client'] ?? '';
 
             return new QiyueClient($client_key);
         });

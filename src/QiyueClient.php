@@ -41,7 +41,7 @@ class QiyueClient
     {
         $arguments = func_get_args(); //获取所有参数
         $function_name = $arguments[0] ?? '';
-        if(!$function_name){
+        if (! $function_name) {
             return [
                 'code' => 1,
                 'message' => 'The Request Api Name Is Required.',

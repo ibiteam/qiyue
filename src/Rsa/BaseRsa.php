@@ -15,12 +15,4 @@ abstract class BaseRsa implements RsaInterface
     {
         $this->initKey($public_key, $private_key);
     }
-
-    public function initKey(?string $public_key, ?string $private_key)
-    {
-        if (! $this->public_key || ! $this->private_key) {
-            $this->public_key = $this->getCombinePublicKey($public_key);
-            $this->private_key = $this->getCombinePrivateKey($private_key);
-        }
-    }
 }
