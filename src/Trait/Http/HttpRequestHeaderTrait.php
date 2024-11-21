@@ -15,11 +15,6 @@ trait HttpRequestHeaderTrait
 
     public function getHeader()
     {
-        //增加默认头部填充
-        if (! $this->header) {
-            $this->setHeader(['Content-type' => 'application/x-www-form-urlencoded']);
-        }
-
         return $this->header;
     }
 }
