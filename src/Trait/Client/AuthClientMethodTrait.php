@@ -2,8 +2,6 @@
 
 namespace Qiyue\Trait\Client;
 
-use Qiyue\Assert\AuthAssert;
-
 trait AuthClientMethodTrait
 {
     /**
@@ -26,6 +24,10 @@ trait AuthClientMethodTrait
             $params['code'] = $code;
         }
 
-        return $this->doRequest($params, AuthAssert::class);
+        $this->request->setHeader([
+            'Content-type' => 'application/x-www-form-urlencoded',
+        ]);
+
+        return $this->doRequest($params);
     }
 }

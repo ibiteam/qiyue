@@ -24,12 +24,21 @@ trait ClientTrait
         throw new \Exception($message);
     }
 
-    public function doRequest(mixed $params = [], string $assert_name = BaseAssert::class)
+    public function autoloadAssert()
     {
-        $this->request->setHeader([
-            'Content-type' => 'application/x-www-form-urlencoded',
-        ]);
+        $assert_name = BaseAssert::class;
+        $arrayClientName = explode('\\', $this->getClassName());
+        $clientName = str_replace('Client', '', end($arrayClientName));
 
-        return (new $assert_name)->assertSuccessfully($this->request->doFormPost($this->getRequestUrl(), $params));
+        if (class_exists('Qiyue\\Assert\\'.$clientName.'Assert')) {
+            $assert_name = 'Qiyue\\Assert\\'.$clientName.'Assert';
+        }
+
+        return $assert_name;
+    }
+
+    public function doRequest(mixed $params = [])
+    {
+        return (new ($this->autoloadAssert()))->assertSuccessfully($this->request->doFormPost($this->getRequestUrl(), $params));
     }
 }

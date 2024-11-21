@@ -2,8 +2,6 @@
 
 namespace Qiyue\Interface\Client;
 
-use Qiyue\Assert\BaseAssert;
-
 interface ClientInterface
 {
     public function init();
@@ -12,5 +10,7 @@ interface ClientInterface
 
     public function exception(string $message);
 
-    public function doRequest(mixed $params = [], string $class_name = BaseAssert::class); //发起网络请求
+    public function autoloadAssert();
+
+    public function doRequest(mixed $params = []); //发起网络请求
 }
