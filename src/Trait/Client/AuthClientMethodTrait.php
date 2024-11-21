@@ -4,7 +4,7 @@ namespace Qiyue\Trait\Client;
 
 use Qiyue\Assert\AuthAssert;
 
-trait AuthClientMethodConfigTrait
+trait AuthClientMethodTrait
 {
     /**
      * 企悦应用授权获取用户信息
