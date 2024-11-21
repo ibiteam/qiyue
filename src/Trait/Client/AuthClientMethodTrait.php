@@ -26,6 +26,6 @@ trait AuthClientMethodTrait
             $params['code'] = $code;
         }
 
-        return $this->doRequest($params, AuthAssert::class, 'code', 200, 'msg', 'data');
+        return $this->doRequest($params, AuthAssert::class);
     }
 }

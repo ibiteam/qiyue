@@ -4,11 +4,11 @@ namespace Qiyue\Interface\Http;
 
 interface HttpRequestMethodInterface
 {
-    public function doFormPost($url, $params = [], $header = []);
+    public function doFormPost($url, $params = []);
 
-    public function doMutipartPost($url, $params = [], $header = []);
+    public function doMutipartPost($url, $params = []);
 
-    public function doJsonPost($url, $params = [], $header = []);
+    public function doJsonPost($url, $params = []);
 
-    public function doGet($url, $query = [], $header = []);
+    public function doGet($url, $query = []);
 }

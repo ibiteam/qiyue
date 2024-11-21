@@ -24,8 +24,12 @@ trait ClientTrait
         throw new \Exception($message);
     }
 
-    public function doRequest(mixed $params = [], string $assert_name = BaseAssert::class, string $check_code = 'code', int|string $success_value = 200, string $msg_code = 'message', string $data_key = 'data')
+    public function doRequest(mixed $params = [], string $assert_name = BaseAssert::class)
     {
-        return (new $assert_name)->assertSuccessfully($this->request->doFormPost($this->getRequestUrl(), $params, []), $check_code, $success_value, $msg_code, $data_key);
+        $this->request->setHeader([
+            'Content-type' => 'application/x-www-form-urlencoded',
+        ]);
+
+        return (new $assert_name)->assertSuccessfully($this->request->doFormPost($this->getRequestUrl(), $params));
     }
 }

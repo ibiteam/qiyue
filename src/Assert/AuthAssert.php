@@ -2,4 +2,9 @@
 
 namespace Qiyue\Assert;
 
-class AuthAssert extends BaseAssert {}
+use Qiyue\Trait\Assert\AuthAssertTrait;
+
+class AuthAssert extends BaseAssert
+{
+    use AuthAssertTrait;
+}
